@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible content=" IE="edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Rose watering app</title>
+      <meta name="keyword" content="#" />
+      <meta name="description" content="#" />
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+
+    <!-- //ROSE WATERING APP -->
+
+<h1>Do I have to water the Rose?</h1>
+
+  <button id="findOut">Find out here</button>
+  <br><br>
+  <div id="waterOrNot"></div>
+
+<script>
+
+
+// Fetching the data from https://www.weatherapi.com/my/ using async GET request
+
+
+async function getData() {
+  try {
+    const response = await fetch('https://api.weatherapi.com/v1/current.json?key=71e54c45fad74731a88200748211202&q=Amsterdam');
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      const rainOrSun = jsonResponse.current.precip_mm;
+      console.log(rainOrSun);
+     
+      if (rainOrSun <= 0) {
+      document.getElementById('waterOrNot').innerHTML = 'Water the Rose if the soil is dry';
+     } else {
+    document.getElementById('waterOrNot').innerHTML = 'No need to water my Rose';
+    }
+   } 
+  } catch (error) {
+    console.log(error);	
+  };
+};
+
+document.getElementById('findOut').addEventListener('click', getData);
+
+</script>
+  </body>
+</html>

@@ -8,4 +8,4 @@ Final goal of an application is to send an e-mail to my friend reminding to wate
 
 At this point of time the app only fetches the current data and prints the message depending on the current weather. No styling is applied. 
 
-The app is planned to be finished by the end of February 2021.
+
